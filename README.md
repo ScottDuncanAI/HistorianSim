@@ -1,6 +1,6 @@
 # HistorianSim
 
-**Describe a process to Claude, and HistorianSim simulates it: the process physics, the
+**Describe a chemical process to Claude, and HistorianSim simulates it: the process physics, the
 control loops, the instruments and the plant historian.** You get 90 days of
 time-series data with faults injected, plus an answer key that says what
 went wrong, when, and how to tell from the data.
