@@ -13,7 +13,7 @@ a real plant, so you can share it freely.
 
 ## How to make a dataset
 
-You need two things installed once: **Python** and **Claude Code**. Then it
+You need two things installed: **Python** and **Claude Code**. Then it
 is six steps.
 
 ### One-time setup
