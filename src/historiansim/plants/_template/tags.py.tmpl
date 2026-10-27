@@ -1,0 +1,20 @@
+"""Historian tags of {{EQUIPMENT}}, and its DCS calculations."""
+
+from __future__ import annotations
+
+import numpy as np  # noqa: F401  (used by most calculations)
+
+from historiansim.tags import TagSpec
+
+
+def plant_tags() -> list[TagSpec]:
+    """Every loop is PV, SP, OP and MODE; add valve POS, indicators and CALC tags.
+
+    instrument is one of: flow, temperature, temperature_slow, level,
+    pressure, analyzer, power, valve, calculated, status.
+    """
+    return []
+
+
+def recompute_dcs_calculations(values: dict, params: dict | None = None) -> None:
+    """Rebuild CALC-* tags in place from *measured* tag values."""

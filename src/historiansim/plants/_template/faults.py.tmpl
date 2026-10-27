@@ -1,0 +1,36 @@
+"""The fault catalog for {{EQUIPMENT}}, organised by symptom.
+
+See .claude/skills/simulate-process/references/fault_design.md.
+"""
+
+from __future__ import annotations
+
+from historiansim.faults.base import (  # noqa: F401
+    ControlFault,
+    DisturbanceFault,
+    Erratic,
+    Exponential,
+    InstrumentFault,
+    Linear,
+    ProcessFault,
+    Step,
+)
+from historiansim.faults.catalog import Evidence, FaultCatalog, RootCause, SymptomClass  # noqa: F401
+
+DAY = 86400.0
+HOUR = 3600.0
+
+SYMPTOMS: dict[str, SymptomClass] = {
+    # "S1": SymptomClass(id="S1", label="...", first_observable="TAG", description="...",
+    #                    tempo="slow"),
+}
+
+CATALOG = FaultCatalog(
+    SYMPTOMS,
+    [
+        # RootCause(id="RC-A1", name="...", label="...", symptom="S1", layer=6,
+        #           component="...", mechanism="...", build=_builder,
+        #           evidence=(Evidence("TAG", "rises", "note", rules_in=(...), rules_out=(...)),),
+        #           grade="Medium", walkthrough="...", competitors=(...)),
+    ],
+)

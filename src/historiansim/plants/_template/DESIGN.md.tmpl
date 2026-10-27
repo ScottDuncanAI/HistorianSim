@@ -1,0 +1,54 @@
+# {{EQUIPMENT}}: plant design
+
+Written and approved before any code. See
+`src/historiansim/plants/exothermic_cstr/DESIGN.md` for a complete example and
+`.claude/skills/simulate-process/references/fault_design.md` for how to build
+the catalog.
+
+## 1. Service
+
+What the unit does, the chemistry or physics, and the product specification.
+
+## 2. Equipment and flow
+
+An ASCII sketch with every equipment item and tag.
+
+## 3. Design point
+
+| Quantity | Value |
+|---|---|
+| ... | ... |
+
+Checked by calculation. Every control valve sits at 30–70 % at design.
+
+## 4. States and physics
+
+The ODEs and algebraic relations. 2–6 states.
+
+## 5. Control
+
+| Loop | Measures | Moves | Notes |
+|---|---|---|---|
+
+## 6. Disturbances
+
+Weather coupling, utility headers, feed variability.
+
+## 7. Fault catalog
+
+### S1: <first observable> (slow | cycling | acute)
+
+| ID | Cause | Layer | Component | What separates it |
+|---|---|---|---|---|
+
+## 8. The benchmark scenario
+
+| # | Cause | Class | Layer | Severity |
+|---|---|---|---|---|
+
+Benign events:
+
+## 9. Acceptance
+
+`historiansim check-plant {{NAME}}` stages 1–5, the full battery on the 90-day
+run, and a blind diagnosis.

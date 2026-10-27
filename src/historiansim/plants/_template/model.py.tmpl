@@ -1,0 +1,56 @@
+"""{{EQUIPMENT}}: <one line on what the unit is>.
+
+<Why the physics is interesting: what nonlinearity, what masking, what makes
+diagnosis hard. See plants/exothermic_cstr/model.py for the pattern.>
+"""
+
+from __future__ import annotations
+
+import math
+
+import numpy as np
+
+from historiansim.plants.unit import UnitModel
+
+__all__ = ["{{CLASS}}"]
+
+
+class {{CLASS}}(UnitModel):
+    name = "{{NAME}}"
+    #: Ordered state names; the order defines the state vector.
+    state_names = ("h", "T")
+    #: Valves the loops move (each a LoopConfig.mv_tag).
+    mv_names = ("XV-001",)
+    #: Valves that can stick: mv -> parameter holding the stiction band.
+    stiction_params: dict[str, str] = {}
+    #: Disturbance channels. "T_amb" is the weather; the rest are declared in
+    #: loops.py as ChannelConfig.
+    disturbance_names = ("T_amb",)
+
+    @staticmethod
+    def default_params() -> dict[str, float]:
+        return {
+            # physical parameters at the design point ...
+            # fault handles: surviving fractions default 1.0 (faulted with
+            # mode="scale"), zero-based quantities default 0.0 (mode="offset")
+        }
+
+    def derivatives(self, t, x, u, d, p) -> np.ndarray:
+        """dx/dt. ``p`` already carries any active process fault."""
+        raise NotImplementedError
+
+    def signals(self, t, x, u, d, p) -> dict[str, float]:
+        """Every true value an instrument can read, keyed by signal name.
+
+        Include CALC-* entries (their true values); the DCS versions are
+        recomputed from measured tags in tags.py.
+        """
+        raise NotImplementedError
+
+    def steady_inputs(self, targets, d, p) -> dict[str, float]:
+        """Valve positions that hold ``targets`` (keyed by pv_source) at equilibrium."""
+        raise NotImplementedError
+
+    def steady_state(self, u, d, p) -> np.ndarray:
+        """Equilibrium state for fixed valve positions."""
+        raise NotImplementedError

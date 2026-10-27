@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Generated datasets are release artifacts, not repo contents.
+# A config plus its seed reproduces any of them exactly.
+datasets/
+*.parquet
+
+# Never commit generated data, answer keys or local scratch.
+datasets*/
+output/
+analysis/
+*.docx
+.claude/settings.local.json
+*.log
+for github/

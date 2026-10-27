@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(historiansim:*)",
+      "Bash(.venv/Scripts/historiansim:*)",
+      "Bash(.venv/bin/historiansim:*)",
+      "Bash(python --version)",
+      "Bash(python -m venv .venv)",
+      "Bash(.venv/Scripts/python -m pip install -e:*)",
+      "Bash(.venv/bin/python -m pip install -e:*)",
+      "Bash(.venv/Scripts/python -m pytest:*)",
+      "Bash(.venv/bin/python -m pytest:*)",
+      "Bash(python -m pytest:*)",
+      "PowerShell(historiansim:*)",
+      "PowerShell(.venv/Scripts/historiansim:*)",
+      "PowerShell(.venv\\Scripts\\historiansim:*)",
+      "PowerShell(.venv/Scripts/python -m pytest:*)",
+      "PowerShell(.venv\\Scripts\\python -m pytest:*)"
+    ]
+  }
+}

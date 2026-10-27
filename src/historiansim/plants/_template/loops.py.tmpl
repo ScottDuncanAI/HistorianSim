@@ -1,0 +1,31 @@
+"""Control loops and disturbance channels of {{EQUIPMENT}}."""
+
+from __future__ import annotations
+
+from historiansim.config.schema import ChannelConfig, LoopConfig
+from historiansim.plants.{{NAME}}.model import {{CLASS}}
+
+#: Design-point disturbance vector, SI units, one entry per disturbance name.
+DESIGN_D = {"T_amb": 20.0}
+
+#: pv_source -> setpoint at design.
+DESIGN_TARGETS: dict[str, float] = {}
+
+
+def design_point():
+    unit = {{CLASS}}()
+    p = unit.params
+    u = unit.steady_inputs(DESIGN_TARGETS, DESIGN_D, p)
+    x = unit.steady_state(u, DESIGN_D, p)
+    return unit, u, x, unit.signals(0.0, x, u, DESIGN_D, p)
+
+
+def plant_loops() -> list[LoopConfig]:
+    """PI loops. A cascade slave or ratio station is mode="CAS" and its sp is
+    the design equilibrium, computed from design_point()."""
+    return []
+
+
+def plant_channels() -> dict[str, ChannelConfig]:
+    """Disturbance channels in engineering units (si_divisor converts)."""
+    return {}

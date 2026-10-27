@@ -1,0 +1,36 @@
+"""The {{EQUIPMENT}} sections of the process description.
+
+Compute every figure from the model. Describe the plant and how to read its
+data; never list failure modes.
+"""
+
+from __future__ import annotations
+
+from historiansim.config.schema import ScenarioConfig
+from historiansim.plants.base import PlantDescription, Section
+
+TAG_NOTES: dict[str, str] = {}
+
+
+def describe(cfg: ScenarioConfig) -> PlantDescription:
+    return PlantDescription(
+        title="{{EQUIPMENT}}: Process Description",
+        intro=[],
+        sections=[
+            Section("Service and product requirements", []),
+            Section("Equipment and process flow", []),
+            Section("Design basis", []),
+            Section("Process physics", []),
+            Section("Control strategy", []),
+            "tags",
+            "calcs",
+            "instruments",
+            Section("Utilities and external influences", []),
+            "neighbours",
+            "files",
+        ],
+        tag_notes=TAG_NOTES,
+        calc_definitions=[],
+        calc_notes=[],
+        instrument_notes=[],
+    )

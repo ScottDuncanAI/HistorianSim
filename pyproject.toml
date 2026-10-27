@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "historiansim"
+version = "0.1.0"
+description = "Realistic continuous process data simulator for diagnostic and fault-detection projects"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=1.5",
+    "pyarrow>=11",
+    "pydantic>=2",
+    "pyyaml>=6",
+    "typer>=0.9",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "scikit-learn>=1.3",
+    "statsmodels>=0.14",
+    "duckdb",
+]
+
+[project.scripts]
+historiansim = "historiansim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+markers = ["slow: multi-minute end-to-end generation runs"]
+
+[tool.setuptools.package-data]
+historiansim = ["plants/_template/*.tmpl", "plants/*/DESIGN.md"]

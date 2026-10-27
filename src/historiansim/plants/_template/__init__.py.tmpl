@@ -1,0 +1,51 @@
+"""{{EQUIPMENT}}: <one line>.
+
+Built from DESIGN.md. Pieces: model.py, tags.py, loops.py, faults.py,
+description.py; this file wires them into a Plant.
+"""
+
+from __future__ import annotations
+
+from historiansim.faults.base import ControlFault  # noqa: F401
+from historiansim.plants.base import BenignEvent, Plant  # noqa: F401
+from historiansim.plants.{{NAME}}.description import describe
+from historiansim.plants.{{NAME}}.faults import CATALOG
+from historiansim.plants.{{NAME}}.loops import plant_channels, plant_loops
+from historiansim.plants.{{NAME}}.model import {{CLASS}}
+from historiansim.plants.{{NAME}}.tags import plant_tags, recompute_dcs_calculations
+
+BENIGN_EVENTS: dict[str, BenignEvent] = {
+    # "temperature_sp": BenignEvent(kind="temperature_sp", duration_days=(0.75, 1.5),
+    #     build=lambda bid, onset, end: ControlFault(id=bid, loop="TIC-xxx",
+    #         action="setpoint", onset_s=onset, value=..., end_s=end, label="..."),
+    #     note="operator raised ... on purpose", why="..."),
+}
+
+SCENARIOS = {
+    "{{SCENARIO}}": {
+        "recipe": "rca-benchmark",
+        # Neutral on purpose: written into the shipped manifest.
+        "description": "{{EQUIPMENT}}, 90 day historian extract.",
+        "cause_ids": [],          # the 9 pinned causes, in onset order
+        "severities": [],         # parallel: subtle / moderate / obvious
+        "benign_kinds": [],       # two keys of BENIGN_EVENTS
+    },
+}
+
+PLANT = Plant(
+    name="{{NAME}}",
+    equipment="{{EQUIPMENT}}",
+    summary="<one line for historiansim list>",
+    unit_cls={{CLASS}},
+    tags=plant_tags,
+    loops=plant_loops,
+    channels=plant_channels,
+    catalog=CATALOG,
+    describe=describe,
+    scenarios=SCENARIOS,
+    recompute_calcs=recompute_dcs_calculations,
+    benign_events=BENIGN_EVENTS,
+    default_benign_kinds=tuple(BENIGN_EVENTS),
+    hard_mode_withheld=(),
+    mass_balance=None,            # ((inflow signals), (outflow signals))
+)
