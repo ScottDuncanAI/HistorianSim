@@ -63,6 +63,14 @@ For the whole record:
 5. False positives on operator actions or artifacts are the agent's problem,
    unless the process description failed to explain the behaviour.
 
+## Check the PFD
+
+- Every balloon tag exists in `tags.csv`, and every loop in `loops.py`
+  (cascades and ratio stations included) is drawn with the same pairing.
+- The drawing passes the PFD skill's render checklist.
+- `historiansim audit <dataset>` passes with `PFD.svg` and `PFD.png` in
+  the folder.
+
 ## Write it down
 
 Write `VALIDATION.md` next to the dataset, not inside its root (see

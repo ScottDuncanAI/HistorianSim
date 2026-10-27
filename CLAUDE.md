@@ -9,7 +9,9 @@ Each dataset is 90 days of data with these properties:
 - a clean 14-day baseline, then 9 different fault events, each diagnosable
   from the data and the process description;
 - 2 deliberate operator moves;
-- a fault answer key.
+- a fault answer key;
+- a conceptual PFD of the unit (`PFD.svg`, `PFD.png`), drawn with the copy of
+  the PFD generator skill in `.claude/skills/simulate/pfd-generator/`.
 
 The people using this repo are mostly process and chemical engineers, not
 software developers. Talk to them in engineering terms, run every command
@@ -54,8 +56,8 @@ historiansim generate cstr-rca --profile quick         # 7-day version, about 2 
   on a controlled tag are applied inside the loop automatically.
 - **Coloured noise only**, and **never global `np.random`**: every random draw
   comes from a named `SeedBank` stream.
-- **`PROCESS_DESCRIPTION.md` and `tags.csv` describe the plant, never its
-  faults.** Only `FAULT_ANSWER_KEY.md` and `metadata/` may name a cause.
+- **`PROCESS_DESCRIPTION.md`, `tags.csv` and the PFD describe the plant,
+  never its faults.** Only `FAULT_ANSWER_KEY.md` and `metadata/` may name a cause.
   `historiansim audit` checks this.
 - **Text the user reads is for process engineers.** Plain sentences, no em
   dashes, no rhetorical "it's not X, it's Y" phrasing.

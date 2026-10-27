@@ -182,6 +182,14 @@ has one row per stored value, with columns `tag`, `timestamp`, `value` and
 `quality`. Each tag only keeps a value when it changes by more than its
 deadband, so every tag has its own timestamps.
 
+**The PFD.** `PFD.svg` shows the unit's equipment, streams, instruments and
+control loops, using the same tag names as the data. It is conceptual and
+marked NOT FOR CONSTRUCTION. It leaves out relief devices, isolation valves,
+line numbers and sizing. The SVG text can be edited in any SVG editor, and
+Claude can revise the drawing if you ask. It is drawn with a copy of the
+[PFD generator skill](https://github.com/ScottDuncanAI/claude-manufacturing-skills),
+which is included in the `/simulate` skill.
+
 **Using it as a blind test.** Give someone everything except
 `FAULT_ANSWER_KEY.md` and the `metadata` folder. Or ask Claude to "make a
 challenge from this dataset". That produces a separate folder with a task
