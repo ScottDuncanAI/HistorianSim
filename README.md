@@ -13,8 +13,7 @@ a real plant, so you can share it freely.
 
 ## How to make a dataset
 
-You need two things installed: **Python** and **Claude Code**. Then it
-is six steps.
+You need 3 things installed: **Python**, **Claude Code**, and the **HistorianSIM** simulator.
 
 ### One-time setup
 
@@ -37,12 +36,13 @@ is six steps.
    account. The [Claude Code documentation](https://code.claude.com/docs) has
    more detail if you need it.
 
-### Every time you want a dataset
-
-1. **Download HistorianSim.** On this page, click the green **Code** button,
+3. **Download HistorianSim.** On this page, click the green **Code** button,
    then **Download ZIP**. Unzip it somewhere convenient, for example your
    Documents folder. You get a folder called `HistorianSim-main`.
-2. **Open a terminal in that folder.**
+
+### Every time you want a dataset
+
+1. **Point Claude Code at the `HistorianSim-main' folder.**
    - Windows: open the folder in File Explorer, right-click an empty space
      and choose **Open in Terminal**.
    - Mac: right-click the folder in Finder and choose **New Terminal at
