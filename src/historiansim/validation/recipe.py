@@ -126,7 +126,8 @@ def check_baseline_settled(dataset, k: float = 3.0, head_h: float = 6.0) -> Chec
 #: someone working the data blind is given, alongside the historian files, so
 #: they must never name a cause. The answer key and metadata/ are the only
 #: places allowed to.
-_BLIND_TEXT = ("PROCESS_DESCRIPTION.md", "tags.csv", "CHALLENGE.md", "submission_template.csv")
+_BLIND_TEXT = ("PROCESS_DESCRIPTION.md", "tags.csv", "CHALLENGE.md", "submission_template.csv",
+               "PFD.svg")
 
 
 def audit_dataset_dir(dataset_dir: Path) -> list[Check]:
@@ -142,7 +143,7 @@ def audit_dataset_dir(dataset_dir: Path) -> list[Check]:
 
     present = {p.name for p in dataset_dir.iterdir() if p.is_file()}
     expected = set(files.DATASET_FILES)
-    extra = sorted(present - expected)
+    extra = sorted(present - expected - set(files.PFD_FILES))
     missing = sorted(expected - present)
     if not (dataset_dir / files.METADATA).is_dir():
         missing.append(files.METADATA + "/")

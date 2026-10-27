@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1260" viewBox="0 0 1700 1260" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+<defs>
+<marker id="aBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0,0 L 10,5 L 0,10 z" fill="#1d4e89"/></marker>
+<marker id="aRust" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0,0 L 10,5 L 0,10 z" fill="#a34a28"/></marker>
+<marker id="aSig" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0,0 L 10,5 L 0,10 z" fill="#50565f"/></marker>
+<marker id="aCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0,0 L 10,5 L 0,10 z" fill="#2a7f8f"/></marker>
+<marker id="aGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0,0 L 10,5 L 0,10 z" fill="#3f7a4d"/></marker>
+</defs>
+<rect width="1700" height="1260" fill="#ffffff"/>
+<rect x="20" y="20" width="1660" height="1220" fill="none" stroke="#b8bec7" stroke-width="1"/>
+<text x="45" y="60" font-size="21" font-weight="bold" fill="#111418" text-anchor="start">C-201 DEPROPANIZER</text>
+<text x="45" y="82" font-size="11.5" font-weight="normal" fill="#5a6472" text-anchor="start">Overhead condensing | Reflux flow control | Reboiler temperature-to-steam cascade</text>
+<rect x="1478" y="42" width="177" height="24" fill="none" stroke="#b02418" stroke-width="1.4"/>
+<text x="1566" y="59" font-size="11" font-weight="bold" fill="#b02418" text-anchor="middle" letter-spacing="0.4">NOT FOR CONSTRUCTION</text>
+<path d="M 280,300 L 380,300 Q 400,300 400,320 L 400,910 Q 400,930 380,930 L 280,930 Q 260,930 260,910 L 260,320 Q 260,300 280,300 Z" fill="#f7f8fa" stroke="#343a46" stroke-width="2.2" stroke-linejoin="miter"/>
+<line x1="272" y1="345" x2="372" y2="345" stroke="#343a46" stroke-width="1.1"/>
+<line x1="288" y1="397" x2="388" y2="397" stroke="#343a46" stroke-width="1.1"/>
+<line x1="272" y1="449" x2="372" y2="449" stroke="#343a46" stroke-width="1.1"/>
+<line x1="288" y1="501" x2="388" y2="501" stroke="#343a46" stroke-width="1.1"/>
+<line x1="272" y1="553" x2="372" y2="553" stroke="#343a46" stroke-width="1.1"/>
+<line x1="288" y1="605" x2="388" y2="605" stroke="#343a46" stroke-width="1.1"/>
+<line x1="272" y1="657" x2="372" y2="657" stroke="#343a46" stroke-width="1.1"/>
+<line x1="288" y1="709" x2="388" y2="709" stroke="#343a46" stroke-width="1.1"/>
+<line x1="272" y1="761" x2="372" y2="761" stroke="#343a46" stroke-width="1.1"/>
+<line x1="288" y1="813" x2="388" y2="813" stroke="#343a46" stroke-width="1.1"/>
+<line x1="272" y1="865" x2="372" y2="865" stroke="#343a46" stroke-width="1.1"/>
+<line x1="272" y1="605" x2="388" y2="605" stroke="#343a46" stroke-width="1.8"/>
+<rect x="620" y="208" width="200" height="60" fill="#f7f8fa" stroke="#343a46" stroke-width="2"/>
+<path d="M 1006,318 L 1274,318 Q 1300,318 1300,344 L 1300,402 Q 1300,428 1274,428 L 1006,428 Q 980,428 980,402 L 980,344 Q 980,318 1006,318 Z" fill="#f7f8fa" stroke="#343a46" stroke-width="2.2" stroke-linejoin="miter"/>
+<path d="M 980,373 L 1300,373 L 1300,402 Q 1300,428 1274,428 L 1006,428 Q 980,428 980,402 Z" fill="#dce8f5"/>
+<line x1="986" y1="373" x2="1294" y2="373" stroke="#1d4e89" stroke-width="1.2" stroke-dasharray="7,5"/>
+<path d="M 576,850 L 804,850 Q 820,850 820,866 L 820,934 Q 820,950 804,950 L 576,950 Q 560,950 560,934 L 560,866 Q 560,850 576,850 Z" fill="#f7f8fa" stroke="#343a46" stroke-width="2.2" stroke-linejoin="miter"/>
+<path d="M 560,890 L 820,890 L 820,934 Q 820,950 804,950 L 576,950 Q 560,950 560,934 Z" fill="#dce8f5"/>
+<line x1="566" y1="890" x2="814" y2="890" stroke="#1d4e89" stroke-width="1.2" stroke-dasharray="7,5"/>
+<path d="M 330,300 L 330,238 L 616,238" fill="none" stroke="#3f7a4d" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aGreen)"/>
+<path d="M 820,238 L 1050,238 L 1050,318" fill="none" stroke="#1d4e89" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aBlue)"/>
+<path d="M 60,170 L 680,170 L 680,208" fill="none" stroke="#2a7f8f" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aCyan)"/>
+<path d="M 770,208 L 770,130 L 1645,130" fill="none" stroke="#2a7f8f" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aCyan)"/>
+<path d="M 1140,428 L 1140,498" fill="none" stroke="#1d4e89" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aBlue)"/>
+<path d="M 1114,528 L 900,528 L 900,283 L 370,283 L 370,300" fill="none" stroke="#1d4e89" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aBlue)"/>
+<path d="M 1000,528 L 1000,668 L 1645,668" fill="none" stroke="#1d4e89" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aBlue)"/>
+<path d="M 60,600 L 256,600" fill="none" stroke="#1d4e89" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aBlue)"/>
+<path d="M 400,870 L 560,870" fill="none" stroke="#1d4e89" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aBlue)"/>
+<path d="M 620,850 L 620,800 L 404,800" fill="none" stroke="#3f7a4d" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aGreen)"/>
+<path d="M 1645,740 L 940,740 L 940,880 L 824,880" fill="none" stroke="#a34a28" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aRust)"/>
+<path d="M 780,950 L 780,1010 L 1645,1010" fill="none" stroke="#a34a28" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aRust)"/>
+<path d="M 640,950 L 640,1090 L 60,1090" fill="none" stroke="#1d4e89" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#aBlue)"/>
+<circle cx="1140" cy="528" r="26" fill="#ffffff" stroke="#343a46" stroke-width="1.8"/>
+<path d="M 1114,516 L 1114,540 L 1140,528 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.5"/>
+<line x1="1114" y1="560" x2="1166" y2="560" stroke="#343a46" stroke-width="1.8"/>
+<line x1="1140" y1="554" x2="1140" y2="560" stroke="#343a46" stroke-width="1.5"/>
+<text x="150" y="350" font-size="14" font-weight="bold" fill="#111418" text-anchor="middle">C-201</text>
+<text x="150" y="368" font-size="10" font-weight="normal" fill="#5a6472" text-anchor="middle" letter-spacing="0.3">DISTILLATION COLUMN</text>
+<text x="150" y="385" font-size="9" font-weight="normal" fill="#5a6472" text-anchor="middle">30 trays | feed tray 12</text>
+<text x="840" y="200" font-size="10.5" font-weight="bold" fill="#111418" text-anchor="start">E-201  OVERHEAD CONDENSER</text>
+<text x="1030" y="345" font-size="13" font-weight="bold" fill="#111418" text-anchor="start">V-201</text>
+<text x="1030" y="362" font-size="9.5" font-weight="normal" fill="#5a6472" text-anchor="start" letter-spacing="0.3">REFLUX DRUM</text>
+<text x="1200" y="540" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="start">P-201</text>
+<text x="1200" y="556" font-size="9" font-weight="normal" fill="#5a6472" text-anchor="start">REFLUX PUMP</text>
+<text x="690" y="916" font-size="13" font-weight="bold" fill="#111418" text-anchor="middle">E-202</text>
+<text x="690" y="933" font-size="9.5" font-weight="normal" fill="#5a6472" text-anchor="middle">KETTLE REBOILER</text>
+<text x="60" y="148" font-size="11" font-weight="bold" fill="#111418" text-anchor="start">COOLING WATER SUPPLY</text>
+<text x="1645" y="108" font-size="11" font-weight="bold" fill="#111418" text-anchor="end">COOLING WATER RETURN</text>
+<text x="60" y="568" font-size="11" font-weight="bold" fill="#111418" text-anchor="start">FEED FROM UPSTREAM</text>
+<text x="60" y="638" font-size="9" font-weight="normal" fill="#5a6472" text-anchor="start">42.0 m³/h  |  62 °C  |  bubble point</text>
+<text x="1645" y="640" font-size="11" font-weight="bold" fill="#111418" text-anchor="end">DISTILLATE TO PRODUCT STORAGE</text>
+<text x="1645" y="712" font-size="11" font-weight="bold" fill="#111418" text-anchor="end">STEAM HEADER — 10 barg</text>
+<text x="1645" y="982" font-size="11" font-weight="bold" fill="#111418" text-anchor="end">TO CONDENSATE RETURN</text>
+<text x="60" y="1062" font-size="11" font-weight="bold" fill="#111418" text-anchor="start">BOTTOMS TO STORAGE</text>
+<text x="410" y="265" font-size="9.5" font-weight="normal" fill="#5a6472" text-anchor="start">REFLUX</text>
+<text x="430" y="222" font-size="9.5" font-weight="normal" fill="#5a6472" text-anchor="start">OVERHEAD VAPOUR</text>
+<circle cx="150" cy="600" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="150" y="598" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">FI</text>
+<text x="150" y="612" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">207</text>
+<circle cx="215" cy="600" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="215" y="598" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">TI</text>
+<text x="215" y="612" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">207</text>
+<circle cx="500" cy="283" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="500" y="281" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">FT</text>
+<text x="500" y="295" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">203</text>
+<path d="M 542,271 L 542,295 L 560,283 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<path d="M 578,271 L 578,295 L 560,283 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<line x1="560" y1="283" x2="560" y2="303" stroke="#343a46" stroke-width="1.4"/>
+<rect x="546" y="309" width="28" height="12" rx="6" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="560" y="267" font-size="10.5" font-weight="bold" fill="#111418" text-anchor="middle">FV-203  (FC)</text>
+<rect x="596" y="366" width="48" height="48" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<circle cx="620" cy="390" r="24" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="620" y="388" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">FIC</text>
+<text x="620" y="402" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">203</text>
+<path d="M 232,158 L 232,182 L 250,170 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<path d="M 268,158 L 268,182 L 250,170 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<line x1="250" y1="170" x2="250" y2="150" stroke="#343a46" stroke-width="1.4"/>
+<rect x="236" y="132" width="28" height="12" rx="6" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="250" y="212" font-size="10.5" font-weight="bold" fill="#111418" text-anchor="middle">PV-201  (FO)</text>
+<line x1="1200" y1="318" x2="1200" y2="292" stroke="#343a46" stroke-width="1.2"/>
+<circle cx="1200" cy="270" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1200" y="268" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">PT</text>
+<text x="1200" y="282" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">201</text>
+<rect x="1176" y="166" width="48" height="48" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<circle cx="1200" cy="190" r="24" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1200" y="188" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">PIC</text>
+<text x="1200" y="202" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">201</text>
+<line x1="1300" y1="373" x2="1338" y2="373" stroke="#343a46" stroke-width="1.2"/>
+<circle cx="1360" cy="373" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1360" y="371" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">LT</text>
+<text x="1360" y="385" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">202</text>
+<rect x="1446" y="426" width="48" height="48" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<circle cx="1470" cy="450" r="24" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1470" y="448" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">LIC</text>
+<text x="1470" y="462" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">202</text>
+<path d="M 1102,656 L 1102,680 L 1120,668 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<path d="M 1138,656 L 1138,680 L 1120,668 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<line x1="1120" y1="668" x2="1120" y2="648" stroke="#343a46" stroke-width="1.4"/>
+<rect x="1106" y="630" width="28" height="12" rx="6" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1120" y="712" font-size="10.5" font-weight="bold" fill="#111418" text-anchor="middle">LV-202  (FC)</text>
+<circle cx="1380" cy="668" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1380" y="666" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">FI</text>
+<text x="1380" y="680" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">202</text>
+<line x1="400" y1="700" x2="438" y2="700" stroke="#343a46" stroke-width="1.2"/>
+<circle cx="460" cy="700" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="460" y="698" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">TT</text>
+<text x="460" y="712" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">205</text>
+<rect x="576" y="676" width="48" height="48" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<circle cx="600" cy="700" r="24" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="600" y="698" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">TIC</text>
+<text x="600" y="712" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">205</text>
+<path d="M 1282,728 L 1282,752 L 1300,740 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<path d="M 1318,728 L 1318,752 L 1300,740 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<line x1="1300" y1="740" x2="1300" y2="760" stroke="#343a46" stroke-width="1.4"/>
+<rect x="1286" y="766" width="28" height="12" rx="6" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1300" y="708" font-size="10.5" font-weight="bold" fill="#111418" text-anchor="middle">FV-206  (FC)</text>
+<circle cx="1420" cy="740" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1420" y="738" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">FT</text>
+<text x="1420" y="752" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">206</text>
+<rect x="1276" y="806" width="48" height="48" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<circle cx="1300" cy="830" r="24" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1300" y="828" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">FIC</text>
+<text x="1300" y="842" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">206</text>
+<line x1="560" y1="920" x2="522" y2="920" stroke="#343a46" stroke-width="1.2"/>
+<circle cx="500" cy="920" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="500" y="918" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">LT</text>
+<text x="500" y="932" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">204</text>
+<rect x="316" y="976" width="48" height="48" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<circle cx="340" cy="1000" r="24" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="340" y="998" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">LIC</text>
+<text x="340" y="1012" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">204</text>
+<path d="M 382,1078 L 382,1102 L 400,1090 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<path d="M 418,1078 L 418,1102 L 400,1090 Z" fill="#ffffff" stroke="#343a46" stroke-width="1.6" stroke-linejoin="miter"/>
+<line x1="400" y1="1090" x2="400" y2="1070" stroke="#343a46" stroke-width="1.4"/>
+<rect x="386" y="1052" width="28" height="12" rx="6" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="400" y="1134" font-size="10.5" font-weight="bold" fill="#111418" text-anchor="middle">LV-204  (FC)</text>
+<rect x="866.0" y="996.0" width="28" height="28" fill="#ffffff" stroke="#343a46" stroke-width="1.5"/>
+<line x1="866.0" y1="1024.0" x2="894.0" y2="996.0" stroke="#343a46" stroke-width="1.5"/>
+<text x="880" y="1046.0" font-size="10" font-weight="bold" fill="#111418" text-anchor="middle">ST-201</text>
+<circle cx="1050" cy="1010" r="22" fill="#ffffff" stroke="#343a46" stroke-width="1.4"/>
+<text x="1050" y="1008" font-size="11.5" font-weight="bold" fill="#111418" text-anchor="middle">TI</text>
+<text x="1050" y="1022" font-size="10" font-weight="normal" fill="#111418" text-anchor="middle">208</text>
+<path d="M 1200,248 L 1200,216" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 1200,166 L 1200,98 L 250,98 L 250,136" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<text x="840" y="90" font-size="8.5" font-weight="normal" fill="#5a6472" text-anchor="middle" letter-spacing="0.2">PRESSURE CONTROL BY CONDENSER DUTY</text>
+<path d="M 500,305 L 500,390 L 594,390" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 620,366 L 620,340 L 560,340 L 560,323" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 1360,395 L 1360,450 L 1444,450" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 1470,474 L 1470,600 L 1120,600 L 1120,634" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 482,700 L 574,700" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 624,700 L 1200,700 L 1200,830 L 1274,830" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<text x="912" y="688" font-size="8.5" font-weight="normal" fill="#5a6472" text-anchor="middle" letter-spacing="0.2">CASCADE SP</text>
+<path d="M 1420,762 L 1420,830 L 1326,830" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 1300,806 L 1300,780" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 500,942 L 500,1000 L 366,1000" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<path d="M 340,1024 L 340,1044 L 400,1044 L 400,1056" fill="none" stroke="#50565f" stroke-width="1.35" stroke-dasharray="7,5.5" marker-end="url(#aSig)"/>
+<text x="850" y="1190" font-size="9.5" font-weight="normal" fill="#5a6472" text-anchor="middle">Design basis: 42.0 m³/h feed | reflux ratio 1.8 | E-201 4.6 MW | E-202 5.1 MW, 8,400 kg/h steam | control valves ≈ 50% open at design</text>
+<line x1="60" y1="1216" x2="105" y2="1216" stroke="#1d4e89" stroke-width="2.8"/>
+<text x="115" y="1221" font-size="12" font-weight="normal" fill="#5a6472" text-anchor="start">Process liquid</text>
+<line x1="270" y1="1216" x2="315" y2="1216" stroke="#3f7a4d" stroke-width="2.8"/>
+<text x="325" y="1221" font-size="12" font-weight="normal" fill="#5a6472" text-anchor="start">Process vapour</text>
+<line x1="480" y1="1216" x2="525" y2="1216" stroke="#a34a28" stroke-width="2.8"/>
+<text x="535" y="1221" font-size="12" font-weight="normal" fill="#5a6472" text-anchor="start">Steam / condensate</text>
+<line x1="693.8" y1="1216" x2="738.8" y2="1216" stroke="#2a7f8f" stroke-width="2.8"/>
+<text x="748.8" y="1221" font-size="12" font-weight="normal" fill="#5a6472" text-anchor="start">Cooling water</text>
+<line x1="903.8" y1="1216" x2="948.8" y2="1216" stroke="#50565f" stroke-width="1.6" stroke-dasharray="7,5.5"/>
+<text x="958.8" y="1221" font-size="12" font-weight="normal" fill="#5a6472" text-anchor="start">DCS / instrument signal</text>
+<text x="1645" y="1220" font-size="9" font-weight="normal" fill="#5a6472" text-anchor="end">Drawing: C201-PID-001  |  Rev C</text>
+</svg>

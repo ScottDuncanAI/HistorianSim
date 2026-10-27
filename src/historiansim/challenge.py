@@ -218,6 +218,9 @@ def make_challenge(dataset_dir: Path, out_dir: Path) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     for name in (layout.HISTORIAN_FULL, layout.HISTORIAN_GRID, layout.TAGS):
         shutil.copy2(dataset_dir / name, out_dir / name)
+    for name in layout.PFD_FILES:
+        if (dataset_dir / name).exists():
+            shutil.copy2(dataset_dir / name, out_dir / name)
     # The description points at the answer key, which the challenge leaves out.
     text = (dataset_dir / layout.PROCESS_DESCRIPTION).read_text(encoding="utf-8")
     text = text.replace(

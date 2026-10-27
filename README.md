@@ -80,9 +80,9 @@ You can do this in either **Claude Code** or the **Claude app**
 
    Reply `approved`, or tell it what to change.
 4. **Wait for the dataset.** Claude builds the simulation, checks the physics
-   at each stage, generates the data and validates it. That takes roughly one
-   to two hours for a new process. When it finishes, it tells you where the
-   dataset is and summarises the faults.
+   at each stage, generates the data, validates it and draws a PFD of the
+   unit. That takes roughly one to two hours for a new process. When it
+   finishes, it tells you where the dataset is and summarises the faults.
 
 The first time, Claude also sets up the Python packages HistorianSim needs.
 You don't have to do anything for that.
@@ -135,6 +135,7 @@ output/cstr-rca-standard-s7/
   tags.csv                 tag dictionary: description, units, range, instrument type
   PROCESS_DESCRIPTION.md   the plant: equipment, physics, control strategy, every tag
   FAULT_ANSWER_KEY.md      every event: start, end, root cause, and the evidence
+  PFD.svg, PFD.png         a conceptual process flow diagram with every loop and tag
   metadata/                per-minute fault labels, plus the settings that reproduce the dataset
 ```
 

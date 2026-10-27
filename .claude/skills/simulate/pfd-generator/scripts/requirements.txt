@@ -1,0 +1,10 @@
+# Preferred renderer — faithful, including arrowheads.
+# Needs native Cairo/GTK libraries, which pip does not supply on Windows.
+cairosvg>=2.7
+pillow>=10.0
+
+# Pure-Python fallback for when cairosvg will not install (typically Windows).
+# Renders dashes, fonts, colors, and geometry correctly, but drops SVG <marker>
+# arrowheads. Read the render step in SKILL.md before relying on it.
+svglib>=1.5
+pymupdf>=1.24
