@@ -108,6 +108,16 @@ output/cstr-rca-standard-s7/
   metadata/                per-minute fault labels, plus the settings that reproduce the dataset
 ```
 
+When Claude builds the dataset with `/simulate`, it also writes one folder
+beside it recording how the dataset was checked:
+
+```
+output/cstr-rca-standard-s7-validation/
+  VALIDATION.md            the checks, the blind-test score and any fixes made
+  plots/                   a trend plot of each fault event
+  blind-submission.csv     the blind test agent's scored answers
+```
+
 What is in the data:
 
 - **90 days at a 10 s scan.** About 40 tags on the unit itself, plus about 60
@@ -164,9 +174,9 @@ Claude draws it the first time you generate one of them with `/simulate`.
 
 **Using it as a blind test.** Give someone everything except
 `FAULT_ANSWER_KEY.md` and the `metadata` folder. Or ask Claude to "make a
-challenge from this dataset". That produces a separate folder with a task
-statement and an answer template, and Claude can score the answers when they
-come back.
+challenge from this dataset". That produces a separate folder, wherever you
+ask for it, with a task statement and an answer template, and Claude can
+score the answers when they come back.
 
 ---
 
