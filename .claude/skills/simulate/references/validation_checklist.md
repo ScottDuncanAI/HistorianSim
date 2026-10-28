@@ -24,7 +24,9 @@
 
 ## Physics and realism review
 
-For each episode, run `historiansim plot <dataset> --episode EP-00n` and check:
+For each episode, run
+`historiansim plot <dataset> --episode EP-00n --out <dataset>-validation/plots/EP-00n.png`
+and check:
 
 - [ ] The confirming evidence moves the way the answer key says.
 - [ ] The tags that rule out competitors are actually flat.
@@ -44,8 +46,9 @@ For the whole record:
 
 ## Blind diagnosis
 
-1. Run `historiansim make-challenge <dataset>`. It writes `<dataset>-challenge/`
-   with the historian files, tag list, process description, `CHALLENGE.md` and
+1. Run `historiansim make-challenge <dataset> --out <scratch>/<dataset>-challenge`,
+   with `<scratch>` a temporary directory outside `output/` and the repo. It writes
+   the historian files, tag list, process description, `CHALLENGE.md` and
    a submission template, and no answer key.
 2. Spawn a fresh subagent with only that folder. Prompt it with the task in
    `CHALLENGE.md` and ask for a submission CSV in the template's format,
@@ -54,6 +57,8 @@ For the whole record:
 3. Run `historiansim score <dataset> <submission.csv>`. Then add a
    `cause_correct` column (Y/N), judging each matched claim against
    `FAULT_ANSWER_KEY.md`: right item *and* right mechanism. Score again.
+   Copy the scored submission to `<dataset>-validation/blind-submission.csv`
+   and delete the challenge folder.
 4. For every miss or wrong cause, decide whose fault it is:
    - **The data's.** The evidence was not in the data, was ambiguous, or
      the process description lacked a relationship needed to reason it
@@ -73,7 +78,9 @@ For the whole record:
 
 ## Write it down
 
-Write `VALIDATION.md` next to the dataset, not inside its root (see
-`docs/validation/cstr-rca-s7.md` for an example). Include the
+Write `<dataset>-validation/VALIDATION.md`, beside the dataset folder and
+never inside it (see `docs/validation/cstr-rca-s7.md` for an example). The
+validation folder holds only `VALIDATION.md`, `plots/` and
+`blind-submission.csv`. Include the
 check results, the difficulty table, the blind score, each miss with its
 classification, and every fix made.

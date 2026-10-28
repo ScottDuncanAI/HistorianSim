@@ -24,10 +24,10 @@ shape (the `rca-benchmark` recipe):
 - every root cause deducible from the data, the tag list and the process
   description.
 
-The dataset folder the user gets:
+The user gets exactly two folders in `output/`, and nothing else:
 
 ```
-output/<scenario>-standard-s<seed>/
+output/<dataset>/                 the dataset, e.g. meg-rca-standard-s7
   historian_10s.parquet    full record, 10 s scan, compressed like a real historian
   historian_60s.parquet    same data on a regular 1-minute grid
   tags.csv                 tag dictionary
@@ -35,7 +35,16 @@ output/<scenario>-standard-s<seed>/
   FAULT_ANSWER_KEY.md      every event: start, end, root cause, evidence
   PFD.svg, PFD.png         conceptual process flow diagram (Step 4b)
   metadata/                per-minute labels, ground truth JSON, config and seed
+
+output/<dataset>-validation/      how the dataset was checked (Step 6)
+  VALIDATION.md            checks, difficulty table, blind score, fixes made
+  plots/                   one trend plot per event (EP-001.png ...)
+  blind-submission.csv     the blind agent's scored submission
 ```
+
+Never leave a challenge folder, a separate plots folder, logs or loose files
+in `output/`. Anything temporary (the blind-test copy, generation logs) goes
+in your scratchpad or a temporary directory and is deleted when done.
 
 Quality comes from three places, in order of importance:
 
@@ -226,8 +235,11 @@ Then look at it:
 
 ```bash
 historiansim report output/<dataset>
-historiansim plot output/<dataset> --episode EP-001   # for each event; the plot is saved beside the dataset
+historiansim plot output/<dataset> --episode EP-001 --out output/<dataset>-validation/plots/EP-001.png   # for each event
 ```
+
+Always pass `--out` as shown: without it the plot lands in a separate
+`<dataset>-plots/` folder.
 
 
 ## Step 6: validate like a reviewer
@@ -237,10 +249,12 @@ Follow `references/validation_checklist.md`. At minimum:
 1. **Physics review.** Plot each event and check two things:
    - the evidence moves as the answer key says;
    - the tags that rule out other causes really stay flat.
-2. **Blind diagnosis.** Run `historiansim make-challenge output/<dataset>` to
-   make a copy without the answer key. Spawn a fresh subagent and give it
-   **only that challenge folder**. Ask it to work `CHALLENGE.md` and write a
-   submission CSV.
+2. **Blind diagnosis.** Run
+   `historiansim make-challenge output/<dataset> --out <scratch>/<dataset>-challenge`
+   to make a copy without the answer key, where `<scratch>` is your scratchpad
+   or another temporary directory **outside `output/` and outside the repo**.
+   Spawn a fresh subagent and give it **only that challenge folder**. Ask it to
+   work `CHALLENGE.md` and write a submission CSV inside that folder.
 
    Score the submission with `historiansim score output/<dataset> <submission.csv>`,
    judging each root cause yourself against `FAULT_ANSWER_KEY.md`. For every
@@ -248,7 +262,11 @@ Follow `references/validation_checklist.md`. At minimum:
    - **the data's:** the evidence is absent, ambiguous or misdescribed. Fix
      and regenerate;
    - **the agent's:** the evidence is there. Fine; note it.
-3. Write a short `VALIDATION.md` next to the dataset folder, not inside it:
+
+   Copy the scored submission (with its `cause_correct` column) to
+   `output/<dataset>-validation/blind-submission.csv`, then delete the
+   challenge folder.
+3. Write a short `output/<dataset>-validation/VALIDATION.md`:
    - the checks;
    - the blind score;
    - the fixes made.
@@ -257,14 +275,17 @@ Follow `references/validation_checklist.md`. At minimum:
 
 Tell the user, in plain language:
 
-- **Where the dataset is,** and what each file is. Use the layout above.
+- **Where the dataset is,** and what each file is, plus what is in the
+  validation folder. Use the two-folder layout above.
 - **How to open it.** `historian_60s.parquet` opens in pandas, Power BI,
   Spotfire or Seeq. Offer to export a CSV copy if they want Excel.
 - **The events table** from `FAULT_ANSWER_KEY.md`.
 - **The blind-test result.**
-- **Blind use.** To hand the dataset to someone as a blind test, run
-  `historiansim make-challenge` or give them everything except
-  `FAULT_ANSWER_KEY.md` and `metadata/`.
+- **Blind use.** To hand the dataset to someone as a blind test, give them
+  everything in the dataset folder except `FAULT_ANSWER_KEY.md` and
+  `metadata/`. Offer to build a challenge copy (`historiansim make-challenge`,
+  which adds a task sheet and submission template) only if they ask for one,
+  and put it wherever they say, not in `output/`.
 
 - **The PFD,** with the engineering assumptions made while drawing it and
   any design concerns noticed, as the PFD skill describes.
