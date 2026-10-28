@@ -13,7 +13,7 @@ a real plant, so you can share it freely.
 
 ## How to make a dataset
 
-You need 3 things installed: **Python**, **Claude Code**, and the **HistorianSIM** simulator.
+You need 3 things installed: **Python**, **Claude Code**, and the **HistorianSim** simulator.
 
 ### One-time setup
 
