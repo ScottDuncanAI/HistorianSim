@@ -19,7 +19,16 @@ All coordinates are absolute in viewBox units. Draw order:
 vessel bodies+fills -> external pipes -> vessel internals (coils) -> equipment
 details -> balloons and valves last (white fill hides pipes behind tags).
 Internals drawn before the vessel fill will be painted over.
+
+Arrowheads are drawn as filled triangles, not SVG <marker> elements. Markers
+(especially orient="auto-start-reverse") are dropped silently by many viewers
+and by the svglib fallback renderer; a plain polygon shows everywhere. A line
+that carries an arrow must end with a straight segment (M/L/H/V commands),
+because the head is aimed along its last two points.
 """
+
+import math
+import re
 
 BLUE = "#1d4e89"   # process liquid
 RUST = "#a34a28"   # steam / condensate
@@ -40,6 +49,51 @@ def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
+def _path_points(d):
+    """Vertices of a path built from absolute M, L, H and V commands.
+
+    Returns a list of (command, x, y) with H and V resolved to full points.
+    """
+    tokens = re.findall(r"[A-Za-z]|-?\d*\.?\d+(?:[eE]-?\d+)?", d)
+    pts, cmd, i, x, y = [], None, 0, 0.0, 0.0
+    while i < len(tokens):
+        t = tokens[i]
+        if t.isalpha():
+            if t not in "MLHV":
+                raise ValueError(
+                    f"arrowed path must use absolute M/L/H/V commands only, got {t!r} in {d!r}")
+            cmd = t
+            i += 1
+            continue
+        if cmd in ("M", "L"):
+            x, y = float(tokens[i]), float(tokens[i + 1])
+            i += 2
+        elif cmd == "H":
+            x = float(t)
+            i += 1
+        elif cmd == "V":
+            y = float(t)
+            i += 1
+        else:
+            raise ValueError(f"path must start with M: {d!r}")
+        pts.append(("M" if cmd == "M" else "L", x, y))
+        if cmd == "M":
+            cmd = "L"   # SVG: further pairs after M are implicit line-tos
+    if len(pts) < 2:
+        raise ValueError(f"arrowed path needs at least two points: {d!r}")
+    return pts
+
+
+def _last_two_points(d):
+    pts = _path_points(d)
+    return (pts[-2][1], pts[-2][2]), (pts[-1][1], pts[-1][2])
+
+
+def _replace_last_point(d, x, y):
+    pts = _path_points(d)[:-1] + [("L", x, y)]
+    return " ".join(f"{c} {px:g},{py:g}" for c, px, py in pts)
+
+
 def text_width(s, size, bold=False):
     """Rough width estimate. Verify by rendering; this only catches gross errors."""
     return len(s) * size * (0.60 if bold else 0.55)
@@ -55,14 +109,6 @@ class PID:
         self.o.append(
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
             f'viewBox="0 0 {w} {h}" font-family="{FONTS}">')
-        self.o.append('<defs>')
-        for name, col in (("aBlue", BLUE), ("aRust", RUST), ("aSig", SIG),
-                          ("aCyan", CYAN), ("aGreen", GREEN)):
-            self.o.append(
-                f'<marker id="{name}" viewBox="0 0 10 10" refX="9" refY="5" '
-                f'markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
-                f'<path d="M 0,0 L 10,5 L 0,10 z" fill="{col}"/></marker>')
-        self.o.append('</defs>')
         self.o.append(f'<rect width="{w}" height="{h}" fill="#ffffff"/>')
         if border:
             self.o.append(f'<rect x="20" y="20" width="{w-40}" height="{h-40}" '
@@ -90,17 +136,36 @@ class PID:
                      fill=RED, anchor="middle", ls=0.4)
 
     # ---------------------------------------------------------------- lines
+    def arrowhead(self, d, color, length, half_width):
+        """Filled triangle with its tip on the last point of path ``d``.
+
+        Returns ``d`` with the last point pulled back under the head, so the
+        stroke's square end does not poke out past the tip.
+        """
+        (x0, y0), (x1, y1) = _last_two_points(d)
+        dx, dy = x1 - x0, y1 - y0
+        n = math.hypot(dx, dy) or 1.0
+        ux, uy = dx / n, dy / n
+        bx, by = x1 - ux * length, y1 - uy * length
+        px, py = -uy * half_width, ux * half_width
+        self.add(
+            f'<polygon class="arrowhead" points="{x1:g},{y1:g} {bx + px:.1f},{by + py:.1f} '
+            f'{bx - px:.1f},{by - py:.1f}" fill="{color}"/>')
+        pull = min(length * 0.6, n * 0.5)
+        return _replace_last_point(d, x1 - ux * pull, y1 - uy * pull)
+
     def pipe(self, d, color=BLUE, arrow=False, width=2.4):
-        key = {BLUE: "aBlue", RUST: "aRust", CYAN: "aCyan", GREEN: "aGreen"}.get(color, "aBlue")
-        m = f' marker-end="url(#{key})"' if arrow else ''
+        if arrow:
+            d = self.arrowhead(d, color, length=13, half_width=5.5)
         self.add(f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{width}" '
-                 f'stroke-linejoin="round"{m}/>')
+                 f'stroke-linejoin="round"/>')
 
     def sig(self, d, arrow=True):
         """Instrument signal. Arrow points INTO the receiving device."""
-        m = ' marker-end="url(#aSig)"' if arrow else ''
+        if arrow:
+            d = self.arrowhead(d, SIG, length=10, half_width=4)
         self.add(f'<path d="{d}" fill="none" stroke="{SIG}" stroke-width="1.35" '
-                 f'stroke-dasharray="7,5.5"{m}/>')
+                 f'stroke-dasharray="7,5.5"/>')
 
     def lead(self, x1, y1, x2, y2):
         """Thin solid process/impulse connection from a vessel wall to a balloon."""
