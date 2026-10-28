@@ -68,20 +68,6 @@ Use the venv's `historiansim` for every command below. If Python itself is
 missing, tell the user in one sentence to install Python 3.11 or newer from
 python.org, ticking "Add python.exe to PATH" on Windows. Then wait.
 
-**In the Claude app** (no HistorianSim repository open, skill installed from
-`simulate-skill.zip`), the simulator source ships inside this skill folder at
-`historiansim-src/`:
-
-1. Copy `historiansim-src/` to a writable working folder, for example
-   `~/historiansim`, and run `pip install -e ~/historiansim` there.
-2. Read `~/historiansim/CLAUDE.md` for the hard rules. Paths in this skill
-   such as `src/historiansim/plants/` are relative to that folder.
-3. Start long commands (`generate`, `check-plant --stage 3` and `--stage 5`)
-   in the background with output to a log file, then check the log until
-   they finish. A single command can time out.
-4. Write datasets to the working folder, then zip the dataset folder into
-   the outputs folder so the user can download it.
-
 ## Step 1: understand the request (at most 2 questions)
 
 - **They described a process.** Restate it as one unit operation with its
@@ -254,9 +240,6 @@ Follow `references/validation_checklist.md`. At minimum:
    - **the data's:** the evidence is absent, ambiguous or misdescribed. Fix
      and regenerate;
    - **the agent's:** the evidence is there. Fine; note it.
-
-   If you cannot spawn a subagent (for example in the Claude app), skip the
-   blind diagnosis and say so in `VALIDATION.md` and the hand-over.
 3. Write a short `VALIDATION.md` next to the dataset folder, not inside it:
    - the checks;
    - the blind score;
@@ -266,9 +249,7 @@ Follow `references/validation_checklist.md`. At minimum:
 
 Tell the user, in plain language:
 
-- **Where the dataset is,** and what each file is. Use the layout above. In
-  the Claude app, give them the zip to download, and include the new plant
-  folder in it so the process can be regenerated later.
+- **Where the dataset is,** and what each file is. Use the layout above.
 - **How to open it.** `historian_60s.parquet` opens in pandas, Power BI,
   Spotfire or Seeq. Offer to export a CSV copy if they want Excel.
 - **The events table** from `FAULT_ANSWER_KEY.md`.

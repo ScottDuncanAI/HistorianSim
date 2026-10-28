@@ -42,11 +42,6 @@ You need 3 things installed: **Python**, **Claude Code**, and the **HistorianSIM
 
 ### Every time you want a dataset
 
-You can do this in either **Claude Code** or the **Claude app**
-(claude.ai). The Claude Code steps come first, then the Claude app steps.
-
-#### In Claude Code
-
 1. **Point Claude Code at the `HistorianSim-main` folder.** Either:
    - **Terminal:** open a terminal in the folder (on Windows, right-click an
      empty space in the folder in File Explorer and choose **Open in
@@ -86,32 +81,6 @@ You can do this in either **Claude Code** or the **Claude app**
 
 The first time, Claude also sets up the Python packages HistorianSim needs.
 You don't have to do anything for that.
-
-#### In the Claude app
-
-The Claude app does not need Python, Claude Code or the repository download.
-It runs the simulator in Claude's own sandbox, so it is slower and long runs
-can be interrupted. For building new processes, Claude Code is the more
-reliable choice.
-
-The first time:
-
-1. In Claude, open **Settings > Capabilities** and turn on **Code execution
-   and file creation**.
-2. Download
-   [**simulate-skill.zip**](https://github.com/ScottDuncanAI/HistorianSim/releases/latest/download/simulate-skill.zip).
-   Don't unzip it.
-3. In **Settings > Capabilities > Skills**, click **Upload skill** and choose
-   `simulate-skill.zip`.
-
-Then, each time:
-
-1. Start a new chat and ask Claude to simulate a process, describing it as
-   in step 2 of the Claude Code steps. For example, "Simulate a continuous
-   jacketed reactor making ethylene glycol ...". You can also ask it to
-   recommend a process.
-2. Approve the design, as in step 3 above.
-3. When it finishes, Claude gives you the dataset as a zip file to download.
 
 **Want a dataset right away?** Two processes are already built. Type
 `/simulate` and ask for one of these; each takes about 20 minutes to
