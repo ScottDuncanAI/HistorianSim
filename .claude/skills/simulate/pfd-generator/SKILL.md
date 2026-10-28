@@ -85,12 +85,10 @@ renderPDF.drawToFile(svg2rlg('out.svg'), '_tmp.pdf')
 pymupdf.open('_tmp.pdf')[0].get_pixmap(dpi=120).save('preview.png')
 ```
 
-**The fallback does not draw arrowheads.** Arrowheads are SVG `<marker>` elements, and neither `svglib` nor `pymupdf` supports markers — they render dashes, fonts, colors, and geometry faithfully, but every arrowhead silently disappears. So when you are on the fallback:
+**Arrowheads are drawn as filled triangles, so every renderer shows them.** `pipe(..., arrow=True)` and `sig()` add a `<polygon class="arrowhead">` at the end of the line instead of an SVG `<marker>`. Markers, especially `orient="auto-start-reverse"`, are silently dropped by many viewers and by the fallback renderer, which left drawings with no visible arrows. Never add `<marker>` elements or `marker-end` attributes to a drawing. Two consequences:
 
-- Use the preview for what it is good at: collisions, overlaps, hidden text, elevations, crossed lines.
-- **A missing arrowhead in a fallback preview is a rendering artifact, not a defect.** Do not "fix" it. Chasing it will make you add duplicate arrows to a drawing that was already correct.
-- Verify directionality from the SVG source instead, which is more reliable than reading it off an image anyway: every `sig()` call and every `pipe(..., arrow=True)` should emit a `marker-end`. Count them and check each control loop leg has one.
-- Say in your final response that the preview was rendered without arrowheads and that directionality was confirmed from the source.
+- A line that carries an arrow must end with a straight segment (`M`, `L`, `H`, `V` commands only); the head is aimed along its last two points. `pid_lib` raises an error otherwise.
+- A missing arrowhead in any preview is now a real defect. Check that every control loop leg has one, and confirm the count from the source: the number of `class="arrowhead"` polygons equals the number of `sig()` calls plus `pipe(..., arrow=True)` calls.
 
 If neither renderer is available, deliver the SVG and state plainly that you could not view it and it has not been visually checked. An unchecked drawing presented as a checked one is the worst outcome this skill can produce.
 
