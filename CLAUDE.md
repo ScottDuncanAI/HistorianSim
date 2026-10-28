@@ -11,7 +11,8 @@ Each dataset is 90 days of data with these properties:
 - 2 deliberate operator moves;
 - a fault answer key;
 - a conceptual PFD of the unit (`PFD.svg`, `PFD.png`), drawn with the copy of
-  the PFD generator skill in `.claude/skills/simulate/pfd-generator/`.
+  the PFD generator skill in `.claude/skills/simulate/pfd-generator/`. It is
+  stored in `plants/<name>/pfd/`, and `generate` copies it into each dataset.
 
 The people using this repo are mostly process and chemical engineers, not
 software developers. Talk to them in engineering terms, run every command

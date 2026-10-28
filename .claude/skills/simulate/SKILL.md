@@ -33,7 +33,7 @@ output/<scenario>-standard-s<seed>/
   tags.csv                 tag dictionary
   PROCESS_DESCRIPTION.md   the plant, for a process engineer
   FAULT_ANSWER_KEY.md      every event: start, end, root cause, evidence
-  PFD.svg, PFD.png         conceptual process flow diagram (Step 5b)
+  PFD.svg, PFD.png         conceptual process flow diagram (Step 4b)
   metadata/                per-minute labels, ground truth JSON, config and seed
 ```
 
@@ -78,7 +78,7 @@ python.org, ticking "Add python.exe to PATH" on Windows. Then wait.
   that the two shipped processes can be generated straight away. Let them
   pick.
 - **They picked a shipped process** (`cstr-rca` or `tank-rca`).
-  Skip to Step 5.
+  Skip to Step 4b if the plant has no `pfd/` folder, otherwise Step 5.
 
 Ask only what changes the design, typically:
 
@@ -178,6 +178,35 @@ move or moved the wrong way, decide which is wrong, the physics or the claim.
 Then fix that one and say which you changed. Never loosen a check to make it
 pass. Give the user a one-line progress update after each stage.
 
+## Step 4b: draw the PFD
+
+The PFD belongs to the plant, like its process description. Draw it once the
+gates pass, before generating: the tags and loops are final by then.
+`generate` copies it into every dataset of that plant.
+
+Follow `pfd-generator/SKILL.md` in this skill folder (it has its own
+`scripts/`, `references/` and `examples/`). The skill's "Deliver" step and
+its questions are replaced by what follows here.
+
+- **Source.** Draw from `DESIGN.md` (or the plant's `description.py` for a
+  shipped process) and the tag list in `tags.py`. Don't ask the user
+  anything; the approved design answers every question the PFD skill would
+  ask.
+- **Tags must match the simulation exactly.** Every balloon uses a tag from
+  `tags.py`, and every control loop in the plant's `loops.py`, including
+  cascades and ratio stations, appears with the same pairing. Leave the
+  neighbouring-equipment tags off the drawing.
+- **Plant only.** The drawing shows equipment, streams, instruments and
+  loops. Never label a failure, a fault or anything from the answer key.
+- **Render and inspect it** as the PFD skill requires. If no renderer
+  installs, say so in the hand-over.
+- **Files.** Save everything in `src/historiansim/plants/<name>/pfd/`:
+  the generator script `build_pfd.py`, `PFD.svg` and `PFD.png`. Use exactly
+  those two file names; `generate` looks for them.
+
+A shipped process that has no `pfd/` folder yet gets this step too, before
+Step 5.
+
 ## Step 5: generate
 
 ```bash
@@ -189,7 +218,9 @@ It must end with every check passing, including:
 - `recipe`;
 - `no_range_clamping`;
 - `dataset_layout`;
-- `no_answer_leak`.
+- `no_answer_leak`, which also scans the PFD text.
+
+Check that `PFD.svg` and `PFD.png` are in the dataset folder.
 
 Then look at it:
 
@@ -198,29 +229,6 @@ historiansim report output/<dataset>
 historiansim plot output/<dataset> --episode EP-001   # for each event; the plot is saved beside the dataset
 ```
 
-## Step 5b: draw the PFD
-
-Every dataset gets a conceptual process flow diagram. Draw it while
-`generate` runs, following `pfd-generator/SKILL.md` in this skill folder
-(it has its own `scripts/`, `references/` and `examples/`). The skill's
-"Deliver" step and its questions are replaced by what follows here.
-
-- **Source.** Draw from `DESIGN.md` (or the plant's `description.py` for a
-  shipped process) and the tag list. Don't ask the user anything; the
-  approved design answers every question the PFD skill would ask.
-- **Tags must match the dataset exactly.** Every balloon uses a tag from
-  `tags.csv`, and every control loop in the plant's `loops.py`, including
-  cascades and ratio stations, appears with the same pairing. Leave the
-  neighbouring-equipment tags off the drawing.
-- **Plant only.** The drawing shows equipment, streams, instruments and
-  loops. Never label a failure, a fault or anything from the answer key.
-- **Render and inspect it** as the PFD skill requires. If no renderer
-  installs, say so in the hand-over.
-- **Files.** Keep the generator script at
-  `src/historiansim/plants/<name>/pfd/build_pfd.py`. Copy the result into
-  the dataset folder as `PFD.svg` and `PFD.png`. Run
-  `historiansim audit output/<dataset>` afterwards; it accepts the two PFD
-  files and checks the SVG text for answer leaks.
 
 ## Step 6: validate like a reviewer
 
@@ -267,4 +275,4 @@ Tell the user, in plain language:
 - `references/unit_library.md`: physics templates for common unit operations.
 - `references/recommended_processes.md`: processes to offer when asked to recommend.
 - `references/validation_checklist.md`: what to check before calling a dataset done.
-- `pfd-generator/`: a copy of the PFD generator skill, used in Step 5b.
+- `pfd-generator/`: a copy of the PFD generator skill, used in Step 4b.

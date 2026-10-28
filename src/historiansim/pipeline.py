@@ -330,4 +330,24 @@ def write_dataset(dataset: Dataset, out_dir: Path, resample_s: float = 60.0) -> 
 
     write_process_description(out_dir)
     write_summary(out_dir)
+    copy_pfd(dataset.cfg.unit, out_dir)
     return out_dir
+
+
+def copy_pfd(unit: str, out_dir: Path) -> list[Path]:
+    """Copy the plant's stored PFD (``plants/<unit>/pfd/``) into the dataset folder.
+
+    The drawing belongs to the plant, like its process description, so every
+    dataset of that plant gets the same one. A plant without a drawing is
+    written without one.
+    """
+    import shutil
+
+    from historiansim import layout, plants
+
+    src = Path(plants.__file__).parent / unit / "pfd"
+    copied = []
+    for name in layout.PFD_FILES:
+        if (src / name).exists():
+            copied.append(Path(shutil.copy2(src / name, Path(out_dir) / name)))
+    return copied

@@ -75,8 +75,8 @@ You need 3 things installed: **Python**, **Claude Code**, and the **HistorianSim
 
    Reply `approved`, or tell it what to change.
 4. **Wait for the dataset.** Claude builds the simulation, checks the physics
-   at each stage, generates the data, validates it and draws a PFD of the
-   unit. That takes roughly one to two hours for a new process. When it
+   at each stage, draws a PFD of the unit, then generates the data and
+   validates it. That takes roughly one to two hours for a new process. When it
    finishes, it tells you where the dataset is and summarises the faults.
 
 The first time, Claude also sets up the Python packages HistorianSim needs.
@@ -157,7 +157,10 @@ marked NOT FOR CONSTRUCTION. It leaves out relief devices, isolation valves,
 line numbers and sizing. The SVG text can be edited in any SVG editor, and
 Claude can revise the drawing if you ask. It is drawn with a copy of the
 [PFD generator skill](https://github.com/ScottDuncanAI/claude-manufacturing-skills),
-which is included in the `/simulate` skill.
+which is included in the `/simulate` skill. The drawing is stored with the
+process (`src/historiansim/plants/<name>/pfd/`), so every dataset of that
+process gets the same one. The two built-in processes don't have one yet;
+Claude draws it the first time you generate one of them with `/simulate`.
 
 **Using it as a blind test.** Give someone everything except
 `FAULT_ANSWER_KEY.md` and the `metadata` folder. Or ask Claude to "make a

@@ -39,4 +39,4 @@ filterwarnings = ["ignore::DeprecationWarning"]
 markers = ["slow: multi-minute end-to-end generation runs"]
 
 [tool.setuptools.package-data]
-historiansim = ["plants/_template/*.tmpl", "plants/*/DESIGN.md"]
+historiansim = ["plants/_template/*.tmpl", "plants/*/DESIGN.md", "plants/*/pfd/*"]

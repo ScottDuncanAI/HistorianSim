@@ -41,8 +41,8 @@ METADATA = "metadata"
 #: Every file in the dataset folder itself.
 DATASET_FILES = (HISTORIAN_FULL, HISTORIAN_GRID, TAGS, PROCESS_DESCRIPTION, ANSWER_KEY)
 
-#: The process flow diagram, added after generation. Optional; it shows the
-#: plant only, so it also goes into a challenge folder.
+#: The process flow diagram, copied from ``plants/<name>/pfd/`` when the plant
+#: has one. It shows the plant only, so it also goes into a challenge folder.
 PFD_FILES = ("PFD.svg", "PFD.png")
 
 

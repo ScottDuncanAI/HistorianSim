@@ -68,8 +68,8 @@ For the whole record:
 - Every balloon tag exists in `tags.csv`, and every loop in `loops.py`
   (cascades and ratio stations included) is drawn with the same pairing.
 - The drawing passes the PFD skill's render checklist.
-- `historiansim audit <dataset>` passes with `PFD.svg` and `PFD.png` in
-  the folder.
+- `PFD.svg` and `PFD.png` were copied into the dataset folder from
+  `plants/<name>/pfd/`, and `historiansim audit <dataset>` passes.
 
 ## Write it down
 
